@@ -6,6 +6,7 @@ public class Range implements IntegerSequence{
 	public Range(int starts, int ends){
 		start = starts;
 		end = ends;
+		reset();
 	}
 
 	public void reset(){
@@ -20,13 +21,16 @@ public class Range implements IntegerSequence{
 		if(current <= end)
 			return true;
 		else{
-			throw new NoSuchElementException("The end of the sequence has been reached.");
+			return false;
 		}
+		
 	}
 
 	public int next(){
 		int oldvalue = current;
 		current += 1;
+		if(current > end + 1)
+			throw new NoSuchElementException("The end of the sequence has been reached.");
 		return oldvalue;
 	}
 
