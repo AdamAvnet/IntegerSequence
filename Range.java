@@ -6,6 +6,8 @@ public class Range implements IntegerSequence{
 	public Range(int starts, int ends){
 		start = starts;
 		end = ends;
+		if(start > end)
+			throw new IllegalArgumentException("Start must be less than or equal to end.");
 		reset();
 	}
 
