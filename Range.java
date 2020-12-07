@@ -30,9 +30,9 @@ public class Range implements IntegerSequence{
 
 	public int next(){
 		int oldvalue = current;
-		current += 1;
-		if(current > end + 1)
+		if(current > end)
 			throw new NoSuchElementException("The end of the sequence has been reached.");
+		current += 1;
 		return oldvalue;
 	}
 
