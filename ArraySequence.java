@@ -5,12 +5,22 @@ public class ArraySequence implements IntegerSequence{
 	int[] data;
 
 	public ArraySequence(int[] other){
-		int[] data = new int[other.length];
-		for(Integer i: other){
+		data = new int[other.length];
+		for(int i = 0; i < other.length; i++){
 			data[i] = other[i];
 		}
 		reset();
 	}
+
+	public ArraySequence(IntegerSequence otherseq){
+		int count = 0;
+		while(otherseq.hasNext()){
+			data[count] = otherseq.next();
+			count += 1;
+		}
+		reset();
+	}
+
 
 	public void reset(){
 		currentIndex = 0;
