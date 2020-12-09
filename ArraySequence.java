@@ -41,7 +41,9 @@ public class ArraySequence implements IntegerSequence{
 	}
 
 	public int next(){
-		int oldvalue = data[currentIndex];
+		int oldvalue = 0;
+		if(hasNext())
+			oldvalue = data[currentIndex];
 		currentIndex += 1;
 		if(currentIndex > length())
 			throw new NoSuchElementException("The end of the sequence has been reached.");

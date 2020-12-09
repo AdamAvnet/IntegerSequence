@@ -29,7 +29,9 @@ public class Range implements IntegerSequence{
 	}
 
 	public int next(){
-		int oldvalue = current;
+		int oldvalue = 0;
+		if(hasNext())
+			oldvalue = current;
 		if(current > end)
 			throw new NoSuchElementException("The end of the sequence has been reached.");
 		current += 1;
